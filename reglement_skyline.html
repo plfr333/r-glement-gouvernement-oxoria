@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Règlements Officiels — État de San Andreas | Skyline RP</title>
+<style>
+  :root{
+    --navy-950:#070c18;
+    --navy-900:#0b1424;
+    --navy-800:#101d33;
+    --navy-700:#16283f;
+    --navy-600:#1e3552;
+    --gold:#c9a24a;
+    --gold-bright:#e8c877;
+    --parchment:#f4efe3;
+    --ink:#1d2430;
+    --ink-soft:#4a5568;
+    --line:rgba(201,162,74,0.25);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy-950);
+    color:var(--parchment);
+    font-family:Georgia,'Times New Roman',serif;
+    line-height:1.65;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.masthead{
+    background:linear-gradient(180deg,var(--navy-900) 0%, var(--navy-950) 100%);
+    border-bottom:1px solid var(--line);
+    padding:38px 24px 26px;
+    text-align:center;
+    position:relative;
+  }
+  header.masthead::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,transparent, var(--gold) 20%, var(--gold-bright) 50%, var(--gold) 80%, transparent);
+  }
+  .seal{
+    width:64px;height:64px;margin:0 auto 14px;
+    border:1.5px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Trajan Pro','Cinzel',Georgia,serif;
+    color:var(--gold-bright);
+    font-size:22px;
+    letter-spacing:1px;
+    position:relative;
+  }
+  .seal::after{
+    content:"";
+    position:absolute;inset:6px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    opacity:0.5;
+  }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:11px;
+    color:var(--gold);
+    font-family:Georgia,serif;
+    margin-bottom:8px;
+  }
+  h1.title{
+    font-size:clamp(26px,4vw,40px);
+    margin:6px 0 8px;
+    color:var(--parchment);
+    font-weight:400;
+    letter-spacing:1px;
+  }
+  .subtitle{
+    color:#9fb0c6;
+    font-size:14px;
+    font-style:italic;
+    letter-spacing:0.5px;
+  }
+
+  /* ---------- TABS ---------- */
+  nav.tabs{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    justify-content:center;
+    gap:2px;
+    background:var(--navy-900);
+    border-bottom:1px solid var(--line);
+    padding:0 12px;
+    flex-wrap:wrap;
+  }
+  nav.tabs button{
+    appearance:none;
+    background:transparent;
+    border:none;
+    color:#8fa0b8;
+    font-family:Georgia,serif;
+    font-size:14px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:18px 22px;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+    transition:all .25s ease;
+  }
+  nav.tabs button:hover{color:var(--gold-bright);}
+  nav.tabs button.active{
+    color:var(--gold-bright);
+    border-bottom-color:var(--gold);
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:36px 20px 90px;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:40px;
+  }
+  @media (max-width:860px){
+    .wrap{grid-template-columns:1fr;}
+    aside.toc{order:2;position:static !important;}
+  }
+
+  aside.toc{
+    position:sticky;
+    top:74px;
+    align-self:start;
+    background:var(--navy-900);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px;
+    max-height:calc(100vh - 100px);
+    overflow-y:auto;
+  }
+  aside.toc h3{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--gold);
+    margin:0 0 14px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:10px;
+  }
+  aside.toc a{
+    display:block;
+    color:#a9b8cc;
+    text-decoration:none;
+    font-size:13.5px;
+    padding:6px 0;
+    border-left:2px solid transparent;
+    padding-left:10px;
+    margin-left:-10px;
+    transition:all .2s;
+  }
+  aside.toc a:hover{color:var(--gold-bright);border-left-color:var(--gold);}
+
+  main.doc{background:transparent;}
+  .doc-header{
+    border-bottom:2px solid var(--gold);
+    padding-bottom:18px;
+    margin-bottom:30px;
+  }
+  .doc-header .kicker{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .doc-header h2{
+    font-size:30px;
+    margin:0 0 8px;
+    font-weight:400;
+    color:var(--parchment);
+  }
+  .doc-header p.lede{
+    color:#9fb0c6;
+    font-size:14.5px;
+    font-style:italic;
+    margin:0;
+  }
+
+  section.chapitre{
+    margin-bottom:44px;
+    padding-top:6px;
+    scroll-margin-top:90px;
+  }
+  section.chapitre h3{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    font-size:20px;
+    color:var(--gold-bright);
+    font-weight:400;
+    margin:0 0 16px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  section.chapitre h3 .num{
+    font-size:13px;
+    color:var(--gold);
+    letter-spacing:2px;
+    font-family:Georgia,serif;
+  }
+  section.chapitre h4{
+    font-size:15px;
+    color:var(--gold);
+    margin:20px 0 8px;
+    font-weight:400;
+    letter-spacing:0.3px;
+  }
+  section.chapitre p{
+    color:#dbe2ec;
+    font-size:15px;
+    margin:0 0 12px;
+  }
+  section.chapitre ul, section.chapitre ol{
+    color:#dbe2ec;
+    font-size:15px;
+    padding-left:22px;
+    margin:0 0 14px;
+  }
+  section.chapitre li{margin-bottom:6px;}
+  section.chapitre strong{color:var(--gold-bright);font-weight:600;}
+
+  table.reg-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 20px;
+    font-size:14px;
+  }
+  table.reg-table th, table.reg-table td{
+    border:1px solid var(--line);
+    padding:9px 12px;
+    text-align:left;
+    color:#dbe2ec;
+  }
+  table.reg-table th{
+    background:var(--navy-800);
+    color:var(--gold-bright);
+    font-weight:400;
+    letter-spacing:0.5px;
+  }
+  table.reg-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+
+  .note-box{
+    border-left:3px solid var(--gold);
+    background:var(--navy-800);
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:14px;
+    color:#c7d2e0;
+  }
+  .note-box .lbl{
+    color:var(--gold-bright);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:11px;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  .grade-flow{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin:16px 0 20px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .grade-flow .rank{
+    padding:11px 18px;
+    font-size:14px;
+    color:#dbe2ec;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    background:var(--navy-900);
+  }
+  .grade-flow .rank:last-child{border-bottom:none;}
+  .grade-flow .rank .r-name{color:var(--gold-bright);}
+  .grade-flow .rank .r-desc{color:#8fa0b8;font-size:12.5px;font-style:italic;}
+
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  footer{
+    text-align:center;
+    padding:30px 20px 50px;
+    color:#5c6b80;
+    font-size:12px;
+    letter-spacing:1px;
+    border-top:1px solid var(--line);
+  }
+
+  ::selection{background:var(--gold);color:var(--navy-950);}
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-track{background:var(--navy-900);}
+  ::-webkit-scrollbar-thumb{background:var(--navy-600);border-radius:4px;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="seal">S</div>
+  <div class="eyebrow">État de San Andreas — Skyline Roleplay</div>
+  <h1 class="title">Recueil des Règlements Officiels</h1>
+  <p class="subtitle">Department of Justice · United States Marshals Service · Gouvernement</p>
+</header>
+
+<nav class="tabs">
+  <button data-tab="doj" class="active">Règlement DOJ</button>
+  <button data-tab="usm">Règlement US Marshals</button>
+  <button data-tab="gov">Règlement Gouvernement</button>
+</nav>
+
+<!-- ================= DOJ ================= -->
+<div class="tab-panel active" id="panel-doj">
+<div class="wrap">
+  <aside class="toc">
+    <h3>Sommaire — DOJ</h3>
+    <a href="#doj-1">I. Préambule &amp; mission</a>
+    <a href="#doj-2">II. Organigramme</a>
+    <a href="#doj-3">III. Attributions</a>
+    <a href="#doj-4">IV. Recrutement</a>
+    <a href="#doj-5">V. Déontologie</a>
+    <a href="#doj-6">VI. Procédure judiciaire</a>
+    <a href="#doj-7">VII. Discipline interne</a>
+    <a href="#doj-8">VIII. Tenue &amp; équipement</a>
+    <a href="#doj-9">IX. Dispositions finales</a>
+  </aside>
+  <main class="doc">
+    <div class="doc-header">
+      <div class="kicker">Department of Justice</div>
+      <h2>Règlement Intérieur du DOJ</h2>
+      <p class="lede">Applicable à l'ensemble des membres du Ministère de la Justice de l'État de San Andreas.</p>
+    </div>
+
+    <section class="chapitre" id="doj-1">
+      <h3><span class="num">CHAPITRE I</span> Préambule &amp; mission</h3>
+      <p>Le <strong>Department of Justice</strong> (DOJ) est l'autorité judiciaire de l'État de San Andreas. Il a pour mission de garantir l'application équitable de la loi, de conduire les poursuites pénales, de représenter l'accusation devant les tribunaux et de veiller au respect du Code Pénal par l'ensemble des institutions et citoyens.</p>
+      <p>Le DOJ agit en toute indépendance vis-à-vis des forces de l'ordre dans l'appréciation des poursuites, tout en travaillant en coordination étroite avec celles-ci et avec le Gouvernement.</p>
+      <div class="note-box"><span class="lbl">Valeurs fondamentales</span>Intégrité, impartialité, rigueur procédurale et respect du contradictoire.</div>
+    </section>
+
+    <section class="chapitre" id="doj-2">
+      <h3><span class="num">CHAPITRE II</span> Organigramme &amp; hiérarchie</h3>
+      <p>La chaîne de commandement du DOJ est structurée comme suit, du grade le plus élevé au plus subalterne :</p>
+      <div class="grade-flow">
+        <div class="rank"><span class="r-name">Attorney General (Procureur Général)</span><span class="r-desc">Chef suprême du DOJ</span></div>
+        <div class="rank"><span class="r-name">Deputy Attorney General</span><span class="r-desc">Second du Procureur Général</span></div>
+        <div class="rank"><span class="r-name">Assistant Attorney General</span><span class="r-desc">Encadrement des divisions</span></div>
+        <div class="rank"><span class="r-name">Senior Prosecutor</span><span class="r-desc">Procureur senior</span></div>
+        <div class="rank"><span class="r-name">Prosecutor</span><span class="r-desc">Procureur</span></div>
+        <div class="rank"><span class="r-name">Assistant Prosecutor</span><span class="r-desc">Substitut du procureur</span></div>
+        <div class="rank"><span class="r-name">Legal Clerk</span><span class="r-desc">Greffier / stagiaire juridique</span></div>
+      </div>
+      <p>Chaque échelon rend compte à l'échelon immédiatement supérieur. L'Attorney General est seul habilité à statuer en dernier ressort sur les orientations de poursuite majeures et les nominations internes.</p>
+    </section>
+
+    <section class="chapitre" id="doj-3">
+      <h3><span class="num">CHAPITRE III</span> Attributions &amp; compétences</h3>
+      <ul>
+        <li>Décider de l'opportunité des poursuites (classement sans suite, mise en accusation).</li>
+        <li>Représenter l'accusation lors des audiences devant la Cour.</li>
+        <li>Négocier les accords de plaidoyer (plea deals) dans les limites fixées par le barème des peines.</li>
+        <li>Délivrer des avis juridiques aux agences gouvernementales et forces de l'ordre.</li>
+        <li>Réviser et proposer des amendements au Code Pénal auprès du Gouvernement.</li>
+        <li>Superviser la conformité des procédures d'arrestation et de garde à vue.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="doj-4">
+      <h3><span class="num">CHAPITRE IV</span> Procédure de recrutement</h3>
+      <h4>Conditions d'éligibilité</h4>
+      <ul>
+        <li>Casier judiciaire vierge ou apuré depuis un délai raisonnable.</li>
+        <li>Aucune sanction disciplinaire active au sein d'une autre agence.</li>
+        <li>Entretien oral devant un membre de la hiérarchie DOJ.</li>
+        <li>Réussite d'un test de connaissance du Code Pénal et de la procédure.</li>
+      </ul>
+      <h4>Période probatoire</h4>
+      <p>Tout nouveau membre est intégré en tant que <strong>Legal Clerk</strong> pour une période probatoire d'observation, à l'issue de laquelle une titularisation est décidée par la hiérarchie.</p>
+    </section>
+
+    <section class="chapitre" id="doj-5">
+      <h3><span class="num">CHAPITRE V</span> Code de déontologie</h3>
+      <ul>
+        <li>Traiter chaque dossier avec impartialité, indépendamment de l'identité des parties.</li>
+        <li>Ne jamais engager de poursuite sans fondement établi au dossier.</li>
+        <li>Respecter la confidentialité des procédures en cours.</li>
+        <li>S'interdire tout conflit d'intérêt ; se déporter d'un dossier concerné personnellement.</li>
+        <li>Porter la tenue réglementaire lors de toute audience ou représentation officielle.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="doj-6">
+      <h3><span class="num">CHAPITRE VI</span> Procédure judiciaire</h3>
+      <table class="reg-table">
+        <tr><th>Étape</th><th>Description</th></tr>
+        <tr><td>1. Réception du dossier</td><td>Transmission du rapport d'arrestation par les forces de l'ordre.</td></tr>
+        <tr><td>2. Examen préliminaire</td><td>Vérification de la recevabilité et de la qualification des faits.</td></tr>
+        <tr><td>3. Décision de poursuite</td><td>Mise en accusation, classement, ou proposition d'accord.</td></tr>
+        <tr><td>4. Audience</td><td>Représentation de l'accusation devant la Cour.</td></tr>
+        <tr><td>5. Réquisition</td><td>Proposition de peine conforme au barème en vigueur.</td></tr>
+        <tr><td>6. Exécution</td><td>Transmission du jugement aux autorités pénitentiaires compétentes.</td></tr>
+      </table>
+    </section>
+
+    <section class="chapitre" id="doj-7">
+      <h3><span class="num">CHAPITRE VII</span> Discipline interne &amp; sanctions</h3>
+      <p>Tout manquement au présent règlement expose son auteur à une procédure disciplinaire interne, pouvant aller de l'avertissement écrit à la révocation, en passant par la suspension temporaire ou la rétrogradation.</p>
+      <div class="note-box"><span class="lbl">Procédure</span>Toute sanction supérieure à l'avertissement doit être validée par l'Attorney General ou le Deputy Attorney General.</div>
+    </section>
+
+    <section class="chapitre" id="doj-8">
+      <h3><span class="num">CHAPITRE VIII</span> Tenue &amp; équipement</h3>
+      <p>Le port de la tenue civile réglementaire (costume sombre) est obligatoire lors de toute représentation officielle du DOJ. L'usage du badge d'identification est requis en toute circonstance de service.</p>
+    </section>
+
+    <section class="chapitre" id="doj-9">
+      <h3><span class="num">CHAPITRE IX</span> Dispositions finales</h3>
+      <p>Le présent règlement est opposable à l'ensemble des membres du DOJ dès leur intégration. Il peut être amendé à tout moment par décision de l'Attorney General, en concertation avec le Gouvernement.</p>
+    </section>
+  </main>
+</div>
+</div>
+
+<!-- ================= US MARSHALS ================= -->
+<div class="tab-panel" id="panel-usm">
+<div class="wrap">
+  <aside class="toc">
+    <h3>Sommaire — US Marshals</h3>
+    <a href="#usm-1">I. Préambule &amp; mission</a>
+    <a href="#usm-2">II. Organigramme</a>
+    <a href="#usm-3">III. Attributions</a>
+    <a href="#usm-4">IV. Recrutement</a>
+    <a href="#usm-5">V. Code de conduite</a>
+    <a href="#usm-6">VI. Procédures opérationnelles</a>
+    <a href="#usm-7">VII. Discipline interne</a>
+    <a href="#usm-8">VIII. Équipement &amp; véhicules</a>
+    <a href="#usm-9">IX. Dispositions finales</a>
+  </aside>
+  <main class="doc">
+    <div class="doc-header">
+      <div class="kicker">United States Marshals Service</div>
+      <h2>Règlement Intérieur des US Marshals</h2>
+      <p class="lede">Agence fédérale d'exécution des décisions de justice et de protection judiciaire de l'État de San Andreas.</p>
+    </div>
+
+    <section class="chapitre" id="usm-1">
+      <h3><span class="num">CHAPITRE I</span> Préambule &amp; mission</h3>
+      <p>Les <strong>US Marshals</strong> constituent l'agence fédérale chargée de l'exécution des mandats, de la traque des fugitifs, du transport sécurisé des détenus et de la protection des acteurs judiciaires (juges, procureurs, témoins).</p>
+      <p>Ils constituent le bras armé du pouvoir judiciaire et interviennent en appui direct du DOJ et des juridictions.</p>
+    </section>
+
+    <section class="chapitre" id="usm-2">
+      <h3><span class="num">CHAPITRE II</span> Organigramme &amp; hiérarchie</h3>
+      <div class="grade-flow">
+        <div class="rank"><span class="r-name">Director</span><span class="r-desc">Directeur de l'agence</span></div>
+        <div class="rank"><span class="r-name">Deputy Director</span><span class="r-desc">Directeur adjoint</span></div>
+        <div class="rank"><span class="r-name">Chief Inspector</span><span class="r-desc">Chef des opérations</span></div>
+        <div class="rank"><span class="r-name">Supervisory Deputy Marshal</span><span class="r-desc">Superviseur d'équipe</span></div>
+        <div class="rank"><span class="r-name">Senior Deputy Marshal</span><span class="r-desc">Marshal confirmé</span></div>
+        <div class="rank"><span class="r-name">Deputy Marshal</span><span class="r-desc">Marshal opérationnel</span></div>
+        <div class="rank"><span class="r-name">Marshal Recruit</span><span class="r-desc">Recrue en formation</span></div>
+      </div>
+    </section>
+
+    <section class="chapitre" id="usm-3">
+      <h3><span class="num">CHAPITRE III</span> Attributions &amp; compétences</h3>
+      <ul>
+        <li>Exécution des mandats d'arrêt émis par la Cour.</li>
+        <li>Traque et interpellation des fugitifs en fuite ou en évasion.</li>
+        <li>Transport sécurisé des détenus entre centres de détention et tribunaux.</li>
+        <li>Protection rapprochée des juges, procureurs et témoins sensibles.</li>
+        <li>Sécurisation des salles d'audience durant les procès.</li>
+        <li>Saisie de biens sur décision judiciaire.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="usm-4">
+      <h3><span class="num">CHAPITRE IV</span> Procédure de recrutement</h3>
+      <ul>
+        <li>Casier judiciaire vierge exigé.</li>
+        <li>Entretien de sélection devant un Supervisory Deputy Marshal ou supérieur.</li>
+        <li>Période de formation initiale encadrée par un tuteur.</li>
+        <li>Évaluation pratique avant titularisation au grade de Deputy Marshal.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="usm-5">
+      <h3><span class="num">CHAPITRE V</span> Code de conduite</h3>
+      <ul>
+        <li>Usage de la force strictement proportionné et encadré par la doctrine en vigueur.</li>
+        <li>Respect des droits du détenu lors de toute interpellation ou transport.</li>
+        <li>Interdiction de tout abus d'autorité ou usage détourné du statut de Marshal.</li>
+        <li>Coordination systématique avec le DOJ avant toute exécution de mandat sensible.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="usm-6">
+      <h3><span class="num">CHAPITRE VI</span> Procédures opérationnelles</h3>
+      <h4>Usage de la force</h4>
+      <p>L'usage de la force suit un principe de gradation : sommation, contrainte physique, moyens intermédiaires, arme létale en dernier recours et uniquement en cas de danger imminent.</p>
+      <h4>Filature et interpellation</h4>
+      <p>Toute filature de fugitif doit être signalée à la centrale avant intervention. L'interpellation privilégie la reddition pacifique ; le recours à la force n'intervient qu'en cas de résistance active ou de danger.</p>
+      <h4>Transport de détenus</h4>
+      <p>Le transport s'effectue à un minimum de deux Marshals, détenu entravé, trajet communiqué à la centrale en temps réel.</p>
+    </section>
+
+    <section class="chapitre" id="usm-7">
+      <h3><span class="num">CHAPITRE VII</span> Discipline interne</h3>
+      <p>Tout manquement à la doctrine d'usage de la force ou au code de conduite fait l'objet d'une enquête interne diligentée par le Chief Inspector, pouvant aboutir à une sanction allant du rappel à l'ordre à la révocation.</p>
+    </section>
+
+    <section class="chapitre" id="usm-8">
+      <h3><span class="num">CHAPITRE VIII</span> Équipement &amp; véhicules</h3>
+      <p>Le port de la tenue tactique réglementaire et du badge US Marshals est obligatoire en intervention. Les véhicules de service sont réservés à un usage strictement professionnel et doivent être restitués en fin de service.</p>
+    </section>
+
+    <section class="chapitre" id="usm-9">
+      <h3><span class="num">CHAPITRE IX</span> Dispositions finales</h3>
+      <p>Le présent règlement s'applique à l'ensemble des membres de l'agence dès leur intégration et peut être amendé par le Director en concertation avec le DOJ et le Gouvernement.</p>
+    </section>
+  </main>
+</div>
+</div>
+
+<!-- ================= GOUVERNEMENT ================= -->
+<div class="tab-panel" id="panel-gov">
+<div class="wrap">
+  <aside class="toc">
+    <h3>Sommaire — Gouvernement</h3>
+    <a href="#gov-1">I. Préambule</a>
+    <a href="#gov-2">II. Structure institutionnelle</a>
+    <a href="#gov-3">III. Attributions des postes</a>
+    <a href="#gov-4">IV. Élections &amp; nominations</a>
+    <a href="#gov-5">V. Processus législatif</a>
+    <a href="#gov-6">VI. Relations inter-agences</a>
+    <a href="#gov-7">VII. Code de conduite</a>
+    <a href="#gov-8">VIII. Procédure de destitution</a>
+    <a href="#gov-9">IX. Budget &amp; finances publiques</a>
+    <a href="#gov-10">X. Dispositions finales</a>
+  </aside>
+  <main class="doc">
+    <div class="doc-header">
+      <div class="kicker">Gouvernement de l'État de San Andreas</div>
+      <h2>Règlement Institutionnel du Gouvernement</h2>
+      <p class="lede">Cadre organisationnel et statutaire de l'exécutif de l'État.</p>
+    </div>
+
+    <section class="chapitre" id="gov-1">
+      <h3><span class="num">CHAPITRE I</span> Préambule</h3>
+      <p>Le Gouvernement de l'État de San Andreas exerce le pouvoir exécutif. Il définit les orientations politiques générales, encadre l'action des agences publiques (DOJ, US Marshals, forces de l'ordre) et représente l'État auprès des citoyens.</p>
+    </section>
+
+    <section class="chapitre" id="gov-2">
+      <h3><span class="num">CHAPITRE II</span> Structure institutionnelle</h3>
+      <div class="grade-flow">
+        <div class="rank"><span class="r-name">Governor</span><span class="r-desc">Chef de l'exécutif</span></div>
+        <div class="rank"><span class="r-name">Lieutenant Governor</span><span class="r-desc">Vice-gouverneur</span></div>
+        <div class="rank"><span class="r-name">Secretary of Justice</span><span class="r-desc">Relations avec le DOJ</span></div>
+        <div class="rank"><span class="r-name">Secretary of Public Safety</span><span class="r-desc">Relations avec les forces de l'ordre</span></div>
+        <div class="rank"><span class="r-name">Secretary of the Treasury</span><span class="r-desc">Finances publiques</span></div>
+        <div class="rank"><span class="r-name">Secretary of Communication</span><span class="r-desc">Communication institutionnelle</span></div>
+        <div class="rank"><span class="r-name">Government Advisor</span><span class="r-desc">Conseiller / staff</span></div>
+      </div>
+    </section>
+
+    <section class="chapitre" id="gov-3">
+      <h3><span class="num">CHAPITRE III</span> Attributions des postes</h3>
+      <table class="reg-table">
+        <tr><th>Poste</th><th>Attributions principales</th></tr>
+        <tr><td>Governor</td><td>Décision finale sur les politiques d'État, nomination des secrétaires, représentation officielle.</td></tr>
+        <tr><td>Lieutenant Governor</td><td>Suppléance du Governor, coordination des secrétariats.</td></tr>
+        <tr><td>Secretary of Justice</td><td>Interface entre le Gouvernement et le DOJ, propositions d'amendements au Code Pénal.</td></tr>
+        <tr><td>Secretary of Public Safety</td><td>Coordination des forces de l'ordre et des US Marshals.</td></tr>
+        <tr><td>Secretary of the Treasury</td><td>Gestion du budget de l'État et des subventions aux agences.</td></tr>
+        <tr><td>Secretary of Communication</td><td>Annonces officielles, gestion de l'image institutionnelle.</td></tr>
+      </table>
+    </section>
+
+    <section class="chapitre" id="gov-4">
+      <h3><span class="num">CHAPITRE IV</span> Élections &amp; nominations</h3>
+      <ul>
+        <li>Le Governor est désigné selon les modalités définies par la direction du serveur (élection communautaire ou nomination, selon la saison RP).</li>
+        <li>Les Secretaries sont nommés directement par le Governor, sous réserve de validation par la direction si nécessaire.</li>
+        <li>Tout membre du Gouvernement peut être révoqué par le Governor ou par la direction en cas de manquement grave.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="gov-5">
+      <h3><span class="num">CHAPITRE V</span> Processus législatif</h3>
+      <p>Toute proposition de modification du Code Pénal ou des règlements d'agence suit le circuit suivant :</p>
+      <ol>
+        <li>Rédaction de la proposition par l'agence ou le secrétariat concerné.</li>
+        <li>Examen en réunion de Gouvernement.</li>
+        <li>Validation par le Governor.</li>
+        <li>Publication officielle et entrée en vigueur à date fixée.</li>
+      </ol>
+    </section>
+
+    <section class="chapitre" id="gov-6">
+      <h3><span class="num">CHAPITRE VI</span> Relations inter-agences</h3>
+      <p>Le Gouvernement n'intervient pas dans les décisions judiciaires individuelles du DOJ ni dans les opérations de terrain des US Marshals ou des forces de l'ordre, mais fixe le cadre budgétaire, réglementaire et stratégique dans lequel ces agences évoluent.</p>
+    </section>
+
+    <section class="chapitre" id="gov-7">
+      <h3><span class="num">CHAPITRE VII</span> Code de conduite des membres du Gouvernement</h3>
+      <ul>
+        <li>Exemplarité dans le respect du règlement et du roleplay.</li>
+        <li>Neutralité dans l'exercice des fonctions institutionnelles.</li>
+        <li>Communication officielle réservée aux canaux désignés.</li>
+        <li>Interdiction de tout favoritisme envers une agence ou un citoyen.</li>
+      </ul>
+    </section>
+
+    <section class="chapitre" id="gov-8">
+      <h3><span class="num">CHAPITRE VIII</span> Procédure de destitution</h3>
+      <p>Un membre du Gouvernement peut être destitué en cas de faute grave, d'abus de pouvoir ou de manquement caractérisé au présent règlement, sur décision du Governor ou de la direction du serveur, après examen contradictoire de la situation.</p>
+    </section>
+
+    <section class="chapitre" id="gov-9">
+      <h3><span class="num">CHAPITRE IX</span> Budget &amp; finances publiques</h3>
+      <p>Le Secretary of the Treasury est garant de la bonne allocation des fonds publics entre les différentes agences (DOJ, US Marshals, forces de l'ordre) et rend compte périodiquement au Governor de l'état des finances de l'État.</p>
+    </section>
+
+    <section class="chapitre" id="gov-10">
+      <h3><span class="num">CHAPITRE X</span> Dispositions finales</h3>
+      <p>Le présent règlement institutionnel prévaut sur tout document interne contraire. Il peut être révisé à tout moment par décision du Governor, en concertation avec les Secretaries.</p>
+    </section>
+  </main>
+</div>
+</div>
+
+<footer>
+  État de San Andreas — Skyline Roleplay · Document consultable, non modifiable hors validation officielle
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('nav.tabs button');
+  const panels = {
+    doj: document.getElementById('panel-doj'),
+    usm: document.getElementById('panel-usm'),
+    gov: document.getElementById('panel-gov'),
+  };
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      Object.values(panels).forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      panels[btn.dataset.tab].classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
